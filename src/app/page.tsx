@@ -3,141 +3,183 @@ import Link from "next/link";
 import {
   FileText,
   Mail,
-  Shield,
-  Cpu,
-  Server,
-  Award,
+  User,
   ArrowRight,
-  CheckCircle,
-  Terminal,
   ExternalLink,
+  Github,
+  Terminal,
+  Server,
+  Cpu,
+  ShieldCheck,
+  Zap,
 } from "lucide-react";
 
 export default function HomePage() {
+  const projects = [
+    {
+      id: "project-1",
+      title: "Enterprise Autonomous Network Incident AI Agent",
+      tagline: "AI Agent for Automated Cisco Router Triage & Log Diagnostics",
+      description:
+        "Built using Python, Ollama, and Cisco APIs. Automatically listens for SNMP traps and syslog alerts, parses router error logs, diagnoses root causes (e.g., flapping BGP peers, VLAN mismatches), and generates mitigation recommendations instantly.",
+      tech: ["Python", "Ollama", "Cisco IOS-XE API", "Make / Webhooks"],
+      badge: "AI Network Automation",
+    },
+    {
+      id: "project-2",
+      title: "Air-Gapped Private RAG Engine for SOC Operations",
+      tagline: "Local Privacy-First Vector Search for Internal Security Playbooks",
+      description:
+        "Engineered an air-gapped Retrieval-Augmented Generation (RAG) system utilizing Msty and NotebookLM. Allows SOC analysts to query thousands of pages of internal network topology docs and security policies with zero data leakage.",
+      tech: ["Msty", "NotebookLM", "Ollama", "Vector DB", "Python"],
+      badge: "Cybersecurity & RAG",
+    },
+    {
+      id: "project-3",
+      title: "Automated SD-WAN & Multi-Vendor LAN Topology Auditor",
+      tagline: "Interactive Topology Dashboard & Automated Health Auditing",
+      description:
+        "Developed a custom automation tool that pulls configuration states across Cisco enterprise switches, routers, and SD-WAN edge nodes to render interactive Power BI health metrics and automatically highlight configuration drift.",
+      tech: ["Power BI", "Python", "Cisco CLI", "JSON Data Parsing"],
+      badge: "Enterprise LAN/WAN",
+    },
+    {
+      id: "project-4",
+      title: "Voice-Activated IT Triage & Voice AI Assistant",
+      tagline: "Autonomous Voice Agent for Tier-1 Infrastructure Ticket Escalation",
+      description:
+        "Integrated Vapi with custom webhook pipelines to handle incoming voice calls from field engineers, log incident details directly into IT Service Management systems, and trigger automated ping/traceroute diagnostics.",
+      tech: ["Vapi Voice AI", "Make Automation", "REST APIs", "Python"],
+      badge: "Voice AI & Workflow",
+    },
+  ];
+
   return (
     <main className="min-h-screen w-full bg-slate-950 text-slate-100 selection:bg-cyan-500 selection:text-slate-950">
       
-      {/* Background Glow Effect */}
+      {/* Background Ambient Glows */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 h-[400px] w-[400px] sm:h-[600px] sm:w-[600px] rounded-full bg-cyan-600/10 blur-[120px]" />
-        <div className="absolute top-1/2 -left-40 h-[400px] w-[400px] sm:h-[600px] sm:w-[600px] rounded-full bg-indigo-600/10 blur-[120px]" />
+        <div className="absolute -top-40 -right-40 h-[400px] w-[400px] sm:h-[600px] sm:w-[600px] rounded-full bg-cyan-600/10 blur-[140px]" />
+        <div className="absolute top-1/2 -left-40 h-[400px] w-[400px] sm:h-[600px] sm:w-[600px] rounded-full bg-indigo-600/10 blur-[140px]" />
       </div>
 
-      {/* Main Responsive Container */}
       <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-8 sm:py-12 space-y-16">
         
-        {/* HEADER / NAVIGATION */}
+        {/* ================= HEADER / NAVIGATION ================= */}
         <header className="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-slate-800/80 pb-6 w-full">
           <div className="flex items-center space-x-3">
-            <div className="h-10 w-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-bold text-lg">
+            <div className="h-11 w-11 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-bold text-lg shadow-inner">
               AB
             </div>
             <div>
               <h1 className="text-lg font-bold text-white tracking-wide">Aslam Basha</h1>
-              <p className="text-xs text-slate-400">Network Engineer @ MAP</p>
+              <p className="text-xs text-slate-400">Network Engineer @ MAP | AI Security</p>
             </div>
           </div>
 
           <div className="flex items-center space-x-3 w-full sm:w-auto justify-center sm:justify-end">
             <Link
               href="/about"
-              className="inline-flex items-center space-x-2 rounded-lg bg-slate-900 hover:bg-slate-800 px-4 py-2.5 text-xs font-semibold text-cyan-400 border border-cyan-500/30 transition-all active:scale-95"
+              className="inline-flex items-center space-x-2 rounded-lg bg-cyan-500/10 border border-cyan-500/30 px-4 py-2 text-xs font-semibold text-cyan-400 hover:bg-cyan-500/20 transition-all active:scale-95"
             >
-              <Award className="h-4 w-4" />
-              <span>Certifications & Bio</span>
+              <User className="h-4 w-4" />
+              <span>About Me & Experience</span>
             </Link>
 
-            {/* Cross-Platform Resume Download Link */}
             <a
               href="/resume.pdf"
               download="Aslam_Basha_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 px-4 py-2.5 text-xs font-semibold text-white transition-all shadow-md shadow-cyan-600/20 active:scale-95"
+              className="inline-flex items-center space-x-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 px-4 py-2 text-xs font-semibold text-slate-200 transition-all active:scale-95"
             >
-              <FileText className="h-4 w-4" />
-              <span>Download Resume</span>
+              <FileText className="h-4 w-4 text-cyan-400" />
+              <span>Resume</span>
             </a>
           </div>
         </header>
 
-        {/* HERO SECTION */}
+        {/* ================= HERO SECTION ================= */}
         <section className="space-y-6 max-w-4xl">
           <div className="inline-flex items-center space-x-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3.5 py-1 text-xs font-medium text-cyan-400">
             <Terminal className="h-3.5 w-3.5" />
-            <span>Enterprise Infrastructure & Applied AI Security</span>
+            <span>Featured Portfolio & Technical Implementations</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-            Architecting Resilient Networks &{" "}
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+            Enterprise Network Engineering Meets{" "}
             <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-indigo-400 bg-clip-text text-transparent">
-              Autonomous AI Systems
+              AI Operational Automation
             </span>
-          </h2>
+          </h1>
 
           <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
-            Network Engineer specializing in enterprise Cisco core routing/switching, cybersecurity defense, and air-gapped AI automation. Accelerating MTTR and securing IT infrastructure with modern AI agent workflows.
+            Welcome to my technical portfolio. Below are my production-grade projects bridging 
+            <strong> Cisco LAN/WAN infrastructure</strong>, <strong>SOC cybersecurity</strong>, and <strong>autonomous AI workflow integration</strong>.
           </p>
 
           <div className="flex flex-wrap gap-4 pt-2">
-            <a
-              href="#contact"
-              className="inline-flex items-center space-x-2 rounded-lg bg-white hover:bg-slate-200 px-6 py-3 text-xs sm:text-sm font-semibold text-slate-950 transition-all active:scale-95"
-            >
-              <Mail className="h-4 w-4" />
-              <span>Get In Touch</span>
-            </a>
             <Link
               href="/about"
-              className="inline-flex items-center space-x-2 rounded-lg bg-slate-900 hover:bg-slate-800 px-6 py-3 text-xs sm:text-sm font-semibold text-slate-200 border border-slate-700 transition-all active:scale-95"
+              className="inline-flex items-center space-x-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 px-6 py-3 text-xs sm:text-sm font-semibold text-white transition-all shadow-lg shadow-cyan-600/20 active:scale-95"
             >
-              <span>Explore AI Stack & Credentials</span>
-              <ArrowRight className="h-4 w-4 text-cyan-400" />
+              <span>View Experience & Certifications</span>
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </section>
 
-        {/* CORE COMPETENCIES GRID */}
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full pt-6">
-          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-6 space-y-3">
-            <Server className="h-6 w-6 text-cyan-400" />
-            <h3 className="text-lg font-bold text-white">Enterprise Networking</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              CCNP & CCNA core competency in BGP, OSPF, VLAN segmentation, WAN design, and multi-vendor LAN troubleshooting.
-            </p>
+        {/* ================= ALL PROJECTS SECTION ================= */}
+        <section className="space-y-8 w-full pt-4">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-slate-800 pb-4">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white">All Portfolio Projects</h2>
+              <p className="text-xs sm:text-sm text-slate-400">Hands-on infrastructure automation, private AI engines, and network tooling.</p>
+            </div>
+            <span className="text-xs font-mono text-cyan-400 bg-cyan-950/60 border border-cyan-800 px-3 py-1 rounded-full w-fit">
+              {projects.length} Active Deployments
+            </span>
           </div>
 
-          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-6 space-y-3">
-            <Shield className="h-6 w-6 text-indigo-400" />
-            <h3 className="text-lg font-bold text-white">SOC & Cybersecurity</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Threat mitigation, log analysis, penetration testing methodologies, and air-gapped data protection workflows.
-            </p>
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+            {projects.map((project) => (
+              <div
+                key={project.id}
+                className="group relative rounded-2xl border border-slate-800 bg-slate-900/60 p-6 sm:p-8 space-y-6 hover:border-cyan-500/40 transition-all duration-300 flex flex-col justify-between shadow-xl"
+              >
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="inline-block rounded-full bg-cyan-500/10 border border-cyan-500/30 px-3 py-1 text-[11px] font-semibold text-cyan-400">
+                      {project.badge}
+                    </span>
+                    <Zap className="h-4 w-4 text-slate-600 group-hover:text-cyan-400 transition-colors" />
+                  </div>
 
-          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-6 space-y-3">
-            <Cpu className="h-6 w-6 text-emerald-400" />
-            <h3 className="text-lg font-bold text-white">AI Agent Automation</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Certified via B10x AI Career Accelerator in deploying multi-agent systems, private RAG, and automated ticket triage.
-            </p>
-          </div>
-        </section>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-cyan-300 transition-colors">
+                    {project.title}
+                  </h3>
 
-        {/* CONTACT BANNER */}
-        <section id="contact" className="rounded-2xl border border-cyan-500/20 bg-slate-900/80 p-8 text-center space-y-6 w-full">
-          <h3 className="text-2xl sm:text-3xl font-bold text-white">Ready to Discuss Infrastructure or AI Integration?</h3>
-          <p className="text-xs sm:text-sm text-slate-400 max-w-xl mx-auto">
-            Reach out directly for consulting, enterprise network engineering, or AI operational deployments.
-          </p>
-          <div className="flex justify-center items-center gap-4">
-            <a
-              href="mailto:aslambasha557@gmail.com"
-              className="inline-flex items-center space-x-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 px-6 py-3 text-xs sm:text-sm font-semibold text-white transition-all shadow-lg shadow-cyan-600/20 active:scale-95"
-            >
-              <Mail className="h-4 w-4" />
-              <span>aslambasha557@gmail.com</span>
-            </a>
+                  <p className="text-xs text-cyan-400/90 font-medium">{project.tagline}</p>
+
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    {project.description}
+                  </p>
+                </div>
+
+                <div className="space-y-4 pt-4 border-t border-slate-800/80">
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((t, idx) => (
+                      <span
+                        key={idx}
+                        className="rounded-md bg-slate-950 px-2.5 py-1 text-[11px] font-mono text-slate-400 border border-slate-800"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
