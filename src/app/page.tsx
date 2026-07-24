@@ -35,24 +35,24 @@ function LinkedinIcon(props: React.SVGProps<SVGSVGElement>) {
 const projectsData = [
   {
     id: 1,
-    category: "NETWORK AUTOMATION & AI",
-    role: "Lead Automation Engineer",
-    title: "Enterprise Autonomous Network Incident AI Agent",
+    category: "CYBERSECURITY & AUTOMATION",
+    role: "SOC Automation Engineer",
+    title: "Production SOC Automated Vulnerability Management Matrix Pipeline",
     summary:
-      "Engineered an autonomous AI diagnostic agent using Python, Cisco IOS-XE APIs, and Ollama. Listens for SNMP traps and syslog alerts in real time, executing diagnostic show commands across routers and switches to pinpoint flapping BGP peers and VLAN mismatches instantly.",
-    outcome: "Reduced Mean Time To Repair (MTTR) by 75% for routine core routing outages.",
-    techStack: ["Python", "Cisco IOS-XE API", "Ollama", "SNMP/Syslog", "Make"],
+      "Enterprise Security Operations Center (SOC) orchestration pipeline that automates continuous VLAN scanning, OAuth2 token authentication, non-blocking status polling, and real-time SMTP anomaly dispatching.",
+    outcome: "Zero manual intervention for continuous network vulnerability scans & immediate threat escalation.",
+    techStack: ["n8n", "FastAPI", "Docker", "OAuth2", "SMTP", "REST APIs"],
     details: {
       problem:
-        "Enterprise network alerts flooded engineers with noise, causing alert fatigue. Tier-1 and Tier-2 engineers manually spent 30+ minutes executing repetitive 'show' commands during routing outages.",
+        "Manual security scanning required constant analyst tracking, causing delayed reporting and missed vulnerability windows across segmented enterprise subnets.",
       architecture: [
-        "1. Real-time Listener: Python-backed SNMP/Syslog receiver intercepts router state changes.",
-        "2. Automated Command Dispatch: Uses Netmiko and RESTCONF to execute targeted diagnostic routines on Cisco IOS-XE switches.",
-        "3. Local LLM Analysis: Feeds parsed CLI outputs into an air-gapped local Ollama instance to analyze BGP logs and ARP tables.",
-        "4. Incident Notification: Dispatches a structured root-cause report to NOC webhooks before an engineer manually opens a ticket.",
+        "1. Dual-Trigger Scheduling: Automated hourly/monthly cron dispatchers with first-Monday execution constraints.",
+        "2. OAuth2 Bearer Auth: Dynamic token request negotiation against protected security API endpoints.",
+        "3. Asynchronous Status Loop: Non-blocking 20-second polling loop checking scan completion state without thread locking.",
+        "4. SMTP Threat Alerting: Conditional anomaly evaluator triggering instant email notifications when active alerts > 0.",
       ],
       highlights:
-        "Zero cloud API latency, zero config exposure outside the enterprise perimeter, and fully automated diagnostic execution.",
+        "Fully automated end-to-end vulnerability orchestration deployed on Docker with zero human oversight required.",
     },
   },
   {
@@ -79,6 +79,28 @@ const projectsData = [
   },
   {
     id: 3,
+    category: "NETWORK AUTOMATION & AI",
+    role: "Lead Automation Engineer",
+    title: "Enterprise Autonomous Network Incident AI Agent",
+    summary:
+      "Engineered an autonomous AI diagnostic agent using Python, Cisco IOS-XE APIs, and Ollama. Listens for SNMP traps and syslog alerts in real time, executing diagnostic show commands across routers and switches to pinpoint flapping BGP peers and VLAN mismatches instantly.",
+    outcome: "Reduced Mean Time To Repair (MTTR) by 75% for routine core routing outages.",
+    techStack: ["Python", "Cisco IOS-XE API", "Ollama", "SNMP/Syslog", "Make"],
+    details: {
+      problem:
+        "Enterprise network alerts flooded engineers with noise, causing alert fatigue. Tier-1 and Tier-2 engineers manually spent 30+ minutes executing repetitive 'show' commands during routing outages.",
+      architecture: [
+        "1. Real-time Listener: Python-backed SNMP/Syslog receiver intercepts router state changes.",
+        "2. Automated Command Dispatch: Uses Netmiko and RESTCONF to execute targeted diagnostic routines on Cisco IOS-XE switches.",
+        "3. Local LLM Analysis: Feeds parsed CLI outputs into an air-gapped local Ollama instance to analyze BGP logs and ARP tables.",
+        "4. Incident Notification: Dispatches a structured root-cause report to NOC webhooks before an engineer manually opens a ticket.",
+      ],
+      highlights:
+        "Zero cloud API latency, zero config exposure outside the enterprise perimeter, and fully automated diagnostic execution.",
+    },
+  },
+  {
+    id: 4,
     category: "ENTERPRISE LAN/WAN",
     role: "Network Engineer",
     title: "Automated SD-WAN & Multi-Vendor LAN Topology Auditor",
@@ -97,28 +119,6 @@ const projectsData = [
       ],
       highlights:
         "Provides executive management and network auditors with a single source of truth for all enterprise site configurations.",
-    },
-  },
-  {
-    id: 4,
-    category: "VOICE AI & INCIDENT TRIAGE",
-    role: "AI Integration Specialist",
-    title: "Voice-Activated IT Triage & Incident AI Assistant",
-    summary:
-      "Integrated Vapi Voice AI with automated REST webhooks to receive field engineer calls, transcribe incident descriptions, parse error codes, and automatically trigger initial ping and traceroute diagnostic routines.",
-    outcome: "Eliminated manual Tier-1 ticket creation delay for field network engineers.",
-    techStack: ["Vapi Voice AI", "Make Workflows", "REST APIs", "Python"],
-    details: {
-      problem:
-        "Field technicians working on-site in server rooms had to physically open laptops and log into ticketing systems while handling cabling or rack hardware.",
-      architecture: [
-        "1. Voice Ingestion: Field engineers place a quick phone call to the Vapi Voice AI agent.",
-        "2. Speech Processing: Natural language processor transcribes equipment IDs and reported errors.",
-        "3. Automated Webhook Execution: Triggers automated ICMP ping sweeps and traceroutes across impacted subnet IPs.",
-        "4. Automated Logging: Posts diagnostic baseline data directly into the active ITSM ticketing queue.",
-      ],
-      highlights:
-        "Delivers hands-free IT support call triage, allowing field teams to stay focused on physical infrastructure maintenance.",
     },
   },
 ];
@@ -352,7 +352,7 @@ export default function HomePage() {
             </a>
 
             <a
-              href="https://github.com"
+              href="https://github.com/aslambasha557"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center space-x-2 rounded-xl bg-slate-950 border border-slate-800 hover:bg-slate-900 px-6 py-3 text-xs sm:text-sm font-semibold text-slate-200 transition-all active:scale-95"
@@ -362,7 +362,7 @@ export default function HomePage() {
             </a>
 
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/aslam-basha"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center space-x-2 rounded-xl bg-slate-950 border border-slate-800 hover:bg-slate-900 px-6 py-3 text-xs sm:text-sm font-semibold text-slate-200 transition-all active:scale-95"
