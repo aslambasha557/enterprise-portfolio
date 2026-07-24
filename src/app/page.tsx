@@ -59,20 +59,23 @@ export default function Home() {
               target="_blank" 
               rel="noreferrer"
               className="p-2 bg-slate-900 border border-slate-800 rounded-lg hover:border-cyan-500/50 hover:text-cyan-400 transition-all"
+              title="GitHub"
             >
               <GithubIcon className="w-5 h-5" />
             </a>
             <a 
-              href="https://linkedin.com/in/aslambasha" 
+              href="https://www.linkedin.com/in/aslam-basha5936/" 
               target="_blank" 
               rel="noreferrer"
               className="p-2 bg-slate-900 border border-slate-800 rounded-lg hover:border-cyan-500/50 hover:text-cyan-400 transition-all"
+              title="LinkedIn Profile"
             >
               <LinkedinIcon className="w-5 h-5" />
             </a>
             <a 
-              href="mailto:aslambasha557@gmail.com" 
+              href="mailto:aslambasha557@gmail.com?subject=AI%20Architecture%20%26%20Network%20Security%20Automation" 
               className="p-2 bg-slate-900 border border-slate-800 rounded-lg hover:border-cyan-500/50 hover:text-cyan-400 transition-all"
+              title="AI Architecture & Network Security Automation Inquiry"
             >
               <Mail className="w-5 h-5" />
             </a>
@@ -279,16 +282,18 @@ sudo docker compose up -d`}
           </p>
 
           <div className="flex flex-wrap justify-center items-center gap-4 pt-4">
+            {/* Masked Email Action Button */}
             <a 
-              href="mailto:aslambasha557@gmail.com" 
+              href="mailto:aslambasha557@gmail.com?subject=AI%20Architecture%20%26%20Network%20Security%20Automation" 
               className="inline-flex items-center space-x-2 px-6 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold transition-all shadow-lg shadow-cyan-500/20"
             >
               <Mail className="w-5 h-5" />
-              <span>Send Direct Email</span>
+              <span>AI Architecture & Network Security Automation</span>
             </a>
 
+            {/* LinkedIn Redirect Link */}
             <a 
-              href="https://linkedin.com/in/aslambasha" 
+              href="https://www.linkedin.com/in/aslam-basha5936/" 
               target="_blank" 
               rel="noreferrer"
               className="inline-flex items-center space-x-2 px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-white font-semibold transition-all"
@@ -297,6 +302,7 @@ sudo docker compose up -d`}
               <span>Connect on LinkedIn</span>
             </a>
 
+            {/* GitHub Profile Link */}
             <a 
               href="https://github.com/aslambasha557" 
               target="_blank" 
