@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import {
@@ -6,7 +8,6 @@ import {
   FileText,
   ArrowLeft,
   Mail,
-  Briefcase,
   CheckCircle2,
 } from "lucide-react";
 
@@ -65,7 +66,6 @@ export default function AboutPage() {
                 alt="Aslam Basha - Passport Photo"
                 className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
                 onError={(e) => {
-                  // Fallback icon if image path is missing in public folder
                   const target = e.target as HTMLElement;
                   target.style.display = "none";
                 }}
