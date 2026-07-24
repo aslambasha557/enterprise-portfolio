@@ -1,43 +1,49 @@
 import { NextResponse } from 'next/server';
+import nodemailer from 'nodemailer';
 
-export async function POST(request: Request) {
+export async function POST(req: Request) {
   try {
-    const body = await request.json();
-    const { name, email, subject, message } = body;
+    const { name, email, subject, message } = await req.json();
 
-    // Basic Server-Side Validation
-    if (!name || !email || !message) {
-      return NextResponse.json(
-        { error: 'Name, email, and message are required fields.' },
-        { status: 400 }
-      );
-    }
-
-    // Email format validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      return NextResponse.json(
-        { error: 'Invalid email address.' },
-        { status: 400 }
-      );
-    }
-
-    // Log the message payload (Replace with Resend, SendGrid, or AWS SES integration in production)
-    console.log('New Contact Submission:', {
-      name,
-      email,
-      subject: subject || 'General Consultation Inquiry',
-      message,
-      timestamp: new Date().toISOString(),
+    // 1. Create SMTP transporter
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT) || 465,
+      secure: Number(process.env.SMTP_PORT) === 465, // true for 465, false for 587
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
     });
 
+    // 2. Configure Email Options
+    const mailOptions = {
+      from: `"${name}" <${process.env.SMTP_USER}>`, // Shows submitter's name
+      replyTo: email, // Direct reply goes to visitor's email
+      to: process.env.CONTACT_RECIPIENT_EMAIL || process.env.SMTP_USER,
+      subject: subject ? `[Portfolio] ${subject}` : `New Lead from ${name}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
+          <h2 style="color: #0070f3;">New Portfolio Inquiry</h2>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Work Email:</strong> ${email}</p>
+          <p><strong>Subject:</strong> ${subject || 'N/A'}</p>
+          <hr style="border: none; border-top: 1px solid #eaeaea; margin: 20px 0;" />
+          <h3>Project Brief:</h3>
+          <p style="background: #f4f5f7; padding: 15px; border-radius: 6px; white-space: pre-wrap;">${message}</p>
+        </div>
+      `,
+    };
+
+    // 3. Send Email
+    await transporter.sendMail(mailOptions);
+
+    return NextResponse.json({ success: true, message: 'Message sent successfully!' });
+
+  } catch (error: any) {
+    console.error('SMTP Error:', error);
     return NextResponse.json(
-      { success: true, message: 'Inquiry received! Aslam will respond shortly.' },
-      { status: 200 }
-    );
-  } catch (error) {
-    return NextResponse.json(
-      { error: 'Internal Server Error. Please try again later.' },
+      { error: error.message || 'Failed to send email via SMTP.' },
       { status: 500 }
     );
   }
