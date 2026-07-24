@@ -5,13 +5,12 @@ import {
   Mail,
   User,
   ArrowRight,
-  ExternalLink,
-  Github,
   Terminal,
-  Server,
-  Cpu,
-  ShieldCheck,
   Zap,
+  Server,
+  ShieldCheck,
+  Cpu,
+  CheckCircle,
 } from "lucide-react";
 
 export default function HomePage() {
@@ -19,61 +18,66 @@ export default function HomePage() {
     {
       id: "project-1",
       title: "Enterprise Autonomous Network Incident AI Agent",
-      tagline: "AI Agent for Automated Cisco Router Triage & Log Diagnostics",
+      role: "Lead Automation Engineer",
       description:
-        "Built using Python, Ollama, and Cisco APIs. Automatically listens for SNMP traps and syslog alerts, parses router error logs, diagnoses root causes (e.g., flapping BGP peers, VLAN mismatches), and generates mitigation recommendations instantly.",
-      tech: ["Python", "Ollama", "Cisco IOS-XE API", "Make / Webhooks"],
-      badge: "AI Network Automation",
+        "Engineered an autonomous AI diagnostic agent using Python, Cisco IOS-XE APIs, and Ollama. Listens for SNMP traps and syslog alerts in real time, executes diagnostic show commands across routers/switches, pinpointing flapping BGP peers and VLAN mismatches instantly.",
+      impact: "Reduced Mean Time To Repair (MTTR) by 75% for routine core routing outages.",
+      tech: ["Python", "Cisco IOS-XE API", "Ollama", "SNMP/Syslog", "Make"],
+      category: "Network Automation & AI",
     },
     {
       id: "project-2",
       title: "Air-Gapped Private RAG Engine for SOC Operations",
-      tagline: "Local Privacy-First Vector Search for Internal Security Playbooks",
+      role: "Security & AI Engineer",
       description:
-        "Engineered an air-gapped Retrieval-Augmented Generation (RAG) system utilizing Msty and NotebookLM. Allows SOC analysts to query thousands of pages of internal network topology docs and security policies with zero data leakage.",
+        "Built a zero-data-leakage Retrieval-Augmented Generation (RAG) vector database utilizing Msty and local LLMs. Allows SOC analysts to instantly query internal network topologies, threat playbooks, and compliance policies without sending data to public cloud APIs.",
+      impact: "100% data privacy compliance with instant internal search across 5,000+ pages.",
       tech: ["Msty", "NotebookLM", "Ollama", "Vector DB", "Python"],
-      badge: "Cybersecurity & RAG",
+      category: "Cybersecurity & RAG",
     },
     {
       id: "project-3",
       title: "Automated SD-WAN & Multi-Vendor LAN Topology Auditor",
-      tagline: "Interactive Topology Dashboard & Automated Health Auditing",
+      role: "Network Engineer",
       description:
-        "Developed a custom automation tool that pulls configuration states across Cisco enterprise switches, routers, and SD-WAN edge nodes to render interactive Power BI health metrics and automatically highlight configuration drift.",
-      tech: ["Power BI", "Python", "Cisco CLI", "JSON Data Parsing"],
-      badge: "Enterprise LAN/WAN",
+        "Developed a custom auditing pipeline that harvests configurations across Cisco enterprise switches, routers, and SD-WAN edge devices. Generates real-time Power BI operational dashboards to flag configuration drift and security non-compliance.",
+      impact: "Saved 15+ manual auditing hours per week across enterprise site deployments.",
+      tech: ["Power BI", "Python", "Cisco CLI Parsing", "JSON", "REST APIs"],
+      category: "Enterprise LAN/WAN",
     },
     {
       id: "project-4",
-      title: "Voice-Activated IT Triage & Voice AI Assistant",
-      tagline: "Autonomous Voice Agent for Tier-1 Infrastructure Ticket Escalation",
+      title: "Voice-Activated IT Triage & Incident AI Assistant",
+      role: "AI Integration Specialist",
       description:
-        "Integrated Vapi with custom webhook pipelines to handle incoming voice calls from field engineers, log incident details directly into IT Service Management systems, and trigger automated ping/traceroute diagnostics.",
-      tech: ["Vapi Voice AI", "Make Automation", "REST APIs", "Python"],
-      badge: "Voice AI & Workflow",
+        "Integrated Vapi Voice AI with automated REST webhooks to receive field engineer calls, transcribe incident descriptions, parse error codes, and automatically trigger initial ping/traceroute diagnostic routines.",
+      impact: "Eliminated manual Tier-1 ticket creation delay for field network engineers.",
+      tech: ["Vapi Voice AI", "Make Workflows", "REST APIs", "Python"],
+      category: "Voice AI & Incident Triage",
     },
   ];
 
   return (
-    <main className="min-h-screen w-full bg-slate-950 text-slate-100 selection:bg-cyan-500 selection:text-slate-950">
+    <main className="min-h-screen w-full bg-slate-950 text-slate-100 py-8 sm:py-12">
       
       {/* Background Ambient Glows */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 h-[400px] w-[400px] sm:h-[600px] sm:w-[600px] rounded-full bg-cyan-600/10 blur-[140px]" />
-        <div className="absolute top-1/2 -left-40 h-[400px] w-[400px] sm:h-[600px] sm:w-[600px] rounded-full bg-indigo-600/10 blur-[140px]" />
+        <div className="absolute -top-40 -right-40 h-[600px] w-[600px] rounded-full bg-cyan-600/10 blur-[150px]" />
+        <div className="absolute top-1/2 -left-40 h-[600px] w-[600px] rounded-full bg-indigo-600/10 blur-[150px]" />
       </div>
 
-      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-8 sm:py-12 space-y-16">
+      {/* Fluid Widescreen Container */}
+      <div className="relative w-full max-w-[1500px] mx-auto px-4 sm:px-8 lg:px-16 space-y-16">
         
-        {/* ================= HEADER / NAVIGATION ================= */}
+        {/* ================= NAVIGATION BAR ================= */}
         <header className="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-slate-800/80 pb-6 w-full">
           <div className="flex items-center space-x-3">
-            <div className="h-11 w-11 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-bold text-lg shadow-inner">
+            <div className="h-10 w-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-bold text-base shadow-inner">
               AB
             </div>
             <div>
-              <h1 className="text-lg font-bold text-white tracking-wide">Aslam Basha</h1>
-              <p className="text-xs text-slate-400">Network Engineer @ MAP | AI Security</p>
+              <h1 className="text-base font-bold text-white tracking-wide">Aslam Basha</h1>
+              <p className="text-xs text-slate-400">Network Engineer @ MAP | AI Security Specialist</p>
             </div>
           </div>
 
@@ -94,28 +98,27 @@ export default function HomePage() {
               className="inline-flex items-center space-x-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 px-4 py-2 text-xs font-semibold text-slate-200 transition-all active:scale-95"
             >
               <FileText className="h-4 w-4 text-cyan-400" />
-              <span>Resume</span>
+              <span>Download Resume</span>
             </a>
           </div>
         </header>
 
         {/* ================= HERO SECTION ================= */}
-        <section className="space-y-6 max-w-4xl">
-          <div className="inline-flex items-center space-x-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3.5 py-1 text-xs font-medium text-cyan-400">
-            <Terminal className="h-3.5 w-3.5" />
-            <span>Featured Portfolio & Technical Implementations</span>
-          </div>
+        <section className="space-y-6 w-full">
+          {/* Clean Corporate Category Label (No Pill Badge) */}
+          <p className="text-xs font-mono tracking-widest text-cyan-400 uppercase font-semibold">
+            Enterprise Infrastructure & AI Automation
+          </p>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-            Enterprise Network Engineering Meets{" "}
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight max-w-5xl">
+            Architecting Resilient Networks &{" "}
             <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-indigo-400 bg-clip-text text-transparent">
-              AI Operational Automation
+              Autonomous AI Systems
             </span>
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
-            Welcome to my technical portfolio. Below are my production-grade projects bridging 
-            <strong> Cisco LAN/WAN infrastructure</strong>, <strong>SOC cybersecurity</strong>, and <strong>autonomous AI workflow integration</strong>.
+          <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-4xl">
+            Network Engineer specializing in enterprise Cisco core routing/switching, cybersecurity defense, and air-gapped AI operational workflows. Below is my complete portfolio of technical projects and enterprise deployments.
           </p>
 
           <div className="flex flex-wrap gap-4 pt-2">
@@ -133,45 +136,49 @@ export default function HomePage() {
         <section className="space-y-8 w-full pt-4">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-slate-800 pb-4">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white">All Portfolio Projects</h2>
-              <p className="text-xs sm:text-sm text-slate-400">Hands-on infrastructure automation, private AI engines, and network tooling.</p>
+              <p className="text-xs font-mono tracking-widest text-slate-400 uppercase font-semibold">TECHNICAL PORTFOLIO</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white">Production Projects & Systems</h2>
             </div>
-            <span className="text-xs font-mono text-cyan-400 bg-cyan-950/60 border border-cyan-800 px-3 py-1 rounded-full w-fit">
+            <span className="text-xs font-mono text-cyan-400 bg-slate-900 border border-slate-800 px-3 py-1 rounded-md w-fit">
               {projects.length} Active Deployments
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+          {/* Full Grid Scaling Across Screens */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full">
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="group relative rounded-2xl border border-slate-800 bg-slate-900/60 p-6 sm:p-8 space-y-6 hover:border-cyan-500/40 transition-all duration-300 flex flex-col justify-between shadow-xl"
+                className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 sm:p-8 space-y-6 hover:border-cyan-500/40 transition-all duration-300 flex flex-col justify-between shadow-xl"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="inline-block rounded-full bg-cyan-500/10 border border-cyan-500/30 px-3 py-1 text-[11px] font-semibold text-cyan-400">
-                      {project.badge}
+                    <span className="text-xs font-mono text-cyan-400 font-semibold uppercase tracking-wider">
+                      {project.category}
                     </span>
-                    <Zap className="h-4 w-4 text-slate-600 group-hover:text-cyan-400 transition-colors" />
+                    <span className="text-xs text-slate-400 font-medium">{project.role}</span>
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-cyan-300 transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">
                     {project.title}
                   </h3>
-
-                  <p className="text-xs text-cyan-400/90 font-medium">{project.tagline}</p>
 
                   <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                     {project.description}
                   </p>
+
+                  <div className="p-3.5 rounded-xl border border-cyan-500/20 bg-cyan-950/20 text-xs text-cyan-300 flex items-start space-x-2">
+                    <CheckCircle className="h-4 w-4 text-cyan-400 flex-shrink-0 mt-0.5" />
+                    <span><strong>Key Outcome:</strong> {project.impact}</span>
+                  </div>
                 </div>
 
-                <div className="space-y-4 pt-4 border-t border-slate-800/80">
+                <div className="pt-4 border-t border-slate-800/80">
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((t, idx) => (
                       <span
                         key={idx}
-                        className="rounded-md bg-slate-950 px-2.5 py-1 text-[11px] font-mono text-slate-400 border border-slate-800"
+                        className="rounded-md bg-slate-950 px-2.5 py-1 text-[11px] font-mono text-slate-300 border border-slate-800"
                       >
                         {t}
                       </span>

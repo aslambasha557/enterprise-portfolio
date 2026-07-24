@@ -3,33 +3,27 @@ import Link from "next/link";
 import {
   Award,
   ShieldCheck,
-  Cpu,
-  Clock,
-  CheckCircle2,
   BrainCircuit,
-  Workflow,
-  Server,
   FileText,
   ArrowLeft,
   Mail,
-  Zap,
-  Terminal,
-  Lock,
   Briefcase,
-  UserCheck,
-  Image as ImageIcon,
+  User,
+  CheckCircle2,
 } from "lucide-react";
 
 export default function AboutPage() {
   return (
-    <main className="w-full min-h-screen bg-slate-950 text-slate-100 selection:bg-cyan-500 selection:text-slate-950 py-8 sm:py-12">
-      {/* Background Glows */}
+    <main className="w-full min-h-screen bg-slate-950 text-slate-100 py-8 sm:py-12">
+      
+      {/* Background Ambient Glows */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-cyan-600/10 blur-[140px]" />
-        <div className="absolute top-1/2 -left-40 h-[500px] w-[500px] rounded-full bg-indigo-600/10 blur-[140px]" />
+        <div className="absolute -top-40 -right-40 h-[600px] w-[600px] rounded-full bg-cyan-600/10 blur-[150px]" />
+        <div className="absolute top-1/2 -left-40 h-[600px] w-[600px] rounded-full bg-indigo-600/10 blur-[150px]" />
       </div>
 
-      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 space-y-16">
+      {/* Fluid Widescreen Container */}
+      <div className="relative w-full max-w-[1500px] mx-auto px-4 sm:px-8 lg:px-16 space-y-16">
         
         {/* ================= NAVIGATION ================= */}
         <nav className="flex items-center justify-between border-b border-slate-800/80 pb-6 w-full">
@@ -62,14 +56,13 @@ export default function AboutPage() {
           </div>
         </nav>
 
-        {/* ================= HERO PROFILE & PHOTOS SECTION ================= */}
+        {/* ================= BIO & PHOTO GALLERY ================= */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
           
           <div className="lg:col-span-8 space-y-6">
-            <div className="inline-flex items-center space-x-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3.5 py-1 text-xs font-medium text-cyan-400">
-              <UserCheck className="h-3.5 w-3.5" />
-              <span>Professional Bio & Experience Roadmap</span>
-            </div>
+            <p className="text-xs font-mono tracking-widest text-cyan-400 uppercase font-semibold">
+              PROFESSIONAL BACKGROUND & BIO
+            </p>
 
             <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
               Aslam Basha <br />
@@ -79,9 +72,9 @@ export default function AboutPage() {
             </h1>
 
             <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
-              Currently serving as a <strong>Network Engineer at MAP</strong>, I combine years of 
-              <strong> Cisco enterprise networking (CCNP Core / CCNA)</strong>, <strong>SOC cybersecurity defense</strong>, and 
-              <strong> AI agent automation</strong>. My focus is engineering high-availability LAN/WAN infrastructure and automating enterprise workflows using air-gapped LLMs and multi-agent systems.
+              Currently working as a <strong>Network Engineer at MAP</strong>, I bridge enterprise 
+              <strong> Cisco infrastructure (CCNP / CCNA)</strong>, <strong>Cybersecurity & SOC defense</strong>, and 
+              <strong> AI-driven operational automation</strong>. By deploying autonomous AI agents, private RAG engines, and automated network troubleshooting workflows, I help organizations reduce ticket turnaround times, optimize LAN/WAN topology, and secure critical infrastructure without data compromise.
             </p>
 
             <div className="flex flex-wrap gap-3 pt-2">
@@ -105,46 +98,40 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* GALLERY / PHOTO CARDS */}
+          {/* Photo Gallery Grid */}
           <div className="lg:col-span-4 grid grid-cols-2 gap-3 w-full">
             <div className="col-span-2 rounded-2xl border border-cyan-500/30 bg-slate-900 p-2 overflow-hidden shadow-xl">
               <img
                 src="/image_86b341.png"
-                alt="Aslam Basha Network Engineer"
-                className="w-full h-48 sm:h-56 object-cover rounded-xl hover:scale-105 transition-transform duration-500"
-                onError={(e) => {
-                  (e.target as HTMLElement).style.display = 'none';
-                }}
+                alt="Aslam Basha"
+                className="w-full h-52 sm:h-60 object-cover rounded-xl hover:scale-105 transition-transform duration-500"
+                onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
               />
             </div>
             <div className="rounded-xl border border-slate-800 bg-slate-900 p-1.5 overflow-hidden">
               <img
                 src="/image_87903c.jpg"
-                alt="Certification Credentials"
+                alt="Credentials"
                 className="w-full h-28 object-cover rounded-lg hover:scale-105 transition-transform duration-500"
-                onError={(e) => {
-                  (e.target as HTMLElement).style.display = 'none';
-                }}
+                onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
               />
             </div>
             <div className="rounded-xl border border-slate-800 bg-slate-900 p-1.5 overflow-hidden">
               <img
                 src="/image_8793e3.png"
-                alt="AI Stack Architecture"
+                alt="Architecture"
                 className="w-full h-28 object-cover rounded-lg hover:scale-105 transition-transform duration-500"
-                onError={(e) => {
-                  (e.target as HTMLElement).style.display = 'none';
-                }}
+                onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
               />
             </div>
           </div>
 
         </section>
 
-        {/* ================= WORK EXPERIENCE TIMELINE ================= */}
+        {/* ================= WORK EXPERIENCE ================= */}
         <section className="space-y-6 w-full">
-          <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
-            <Briefcase className="h-6 w-6 text-cyan-400" />
+          <div className="border-b border-slate-800 pb-4">
+            <p className="text-xs font-mono tracking-widest text-slate-400 uppercase font-semibold">CAREER ROADMAP</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-white">Work Experience</h2>
           </div>
 
@@ -154,39 +141,35 @@ export default function AboutPage() {
                 <h3 className="text-xl font-bold text-white">Network Engineer</h3>
                 <p className="text-sm text-cyan-400 font-medium">MAP (Management & Professional Services)</p>
               </div>
-              <span className="text-xs font-mono bg-slate-950 border border-slate-800 text-slate-300 px-3 py-1 rounded-full w-fit">
+              <span className="text-xs font-mono bg-slate-950 border border-slate-800 text-slate-300 px-3 py-1 rounded-md w-fit">
                 Present Role
               </span>
             </div>
 
             <ul className="space-y-2 text-xs sm:text-sm text-slate-300 list-disc list-inside leading-relaxed pt-2">
-              <li>Managing and maintaining enterprise Cisco LAN/WAN networks, switches, routers, and SD-WAN architecture.</li>
-              <li>Performing real-time network troubleshooting, VLAN segmentation, BGP/OSPF routing audits, and incident escalation.</li>
-              <li>Deploying automated log monitoring and custom Python triage scripts to reduce resolution times across enterprise tickets.</li>
-              <li>Integrating secure, air-gapped private AI tools for internal network documentation search and SOC threat analysis.</li>
+              <li>Managing enterprise Cisco LAN/WAN core switches, routers, VLAN segmentation, and SD-WAN architecture.</li>
+              <li>Performing real-time network troubleshooting, BGP/OSPF routing audits, and incident resolution.</li>
+              <li>Deploying automated log monitoring and custom Python triage scripts to accelerate enterprise ticket turnaround times.</li>
+              <li>Integrating air-gapped private AI solutions for secure internal documentation search and SOC threat analysis.</li>
             </ul>
           </div>
         </section>
 
-        {/* ================= VERIFIED CERTIFICATIONS ================= */}
+        {/* ================= CERTIFICATIONS ================= */}
         <section className="space-y-8 w-full">
-          <div className="space-y-2 border-b border-slate-800 pb-4">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">Verified Certifications</h2>
-            <p className="text-slate-400 text-sm">Formal accreditations in Enterprise Networking, Cybersecurity, and Applied Artificial Intelligence.</p>
+          <div className="border-b border-slate-800 pb-4">
+            <p className="text-xs font-mono tracking-widest text-slate-400 uppercase font-semibold">VERIFIED CREDENTIALS</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">Accreditations & Certifications</h2>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full">
             
-            {/* CERT CARD 1: B10X AI CAREER ACCELERATOR */}
+            {/* B10X CERT */}
             <div className="rounded-2xl border border-cyan-500/30 bg-slate-900/70 p-6 sm:p-8 space-y-6 relative overflow-hidden shadow-xl">
-              <div className="absolute top-0 right-0 bg-cyan-500 text-slate-950 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-bl-lg">
-                Certified AI Specialist
-              </div>
-
               <div className="space-y-2">
                 <div className="flex items-center space-x-2 text-cyan-400">
                   <BrainCircuit className="h-5 w-5" />
-                  <span className="text-xs font-semibold uppercase tracking-wider">B10x Accreditation</span>
+                  <span className="text-xs font-mono font-semibold uppercase tracking-wider">B10x Accreditation</span>
                 </div>
                 <h3 className="text-2xl font-bold text-white">AI Career Accelerator Certification</h3>
               </div>
@@ -198,25 +181,21 @@ export default function AboutPage() {
                 </div>
                 <div className="flex items-start space-x-2">
                   <CheckCircle2 className="h-4 w-4 text-cyan-400 flex-shrink-0 mt-0.5" />
-                  <div><strong className="text-white">AI Product Building & Visuals:</strong> Visual dashboards (Napkin AI, Power BI) and functional web apps.</div>
+                  <div><strong className="text-white">AI Visual Dashboards:</strong> Napkin AI, Power BI, and interactive web application builds.</div>
                 </div>
                 <div className="flex items-start space-x-2">
                   <CheckCircle2 className="h-4 w-4 text-cyan-400 flex-shrink-0 mt-0.5" />
-                  <div><strong className="text-white">Ecosystem Mastery:</strong> Enterprise LLMs, local air-gapped vector search, and advanced prompt engineering.</div>
+                  <div><strong className="text-white">Ecosystem Mastery:</strong> Vector search databases, local air-gapped LLMs, and prompt engineering.</div>
                 </div>
               </div>
             </div>
 
-            {/* CERT CARD 2: CISCO & SECURITY */}
+            {/* CISCO CERT */}
             <div className="rounded-2xl border border-indigo-500/30 bg-slate-900/70 p-6 sm:p-8 space-y-6 relative overflow-hidden shadow-xl">
-              <div className="absolute top-0 right-0 bg-indigo-500 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-bl-lg">
-                Infrastructure & SOC
-              </div>
-
               <div className="space-y-2">
                 <div className="flex items-center space-x-2 text-indigo-400">
                   <ShieldCheck className="h-5 w-5" />
-                  <span className="text-xs font-semibold uppercase tracking-wider">Cisco & Security Stack</span>
+                  <span className="text-xs font-mono font-semibold uppercase tracking-wider">Cisco & Security Stack</span>
                 </div>
                 <h3 className="text-2xl font-bold text-white">Networking & Cybersecurity Credentials</h3>
               </div>
@@ -240,19 +219,19 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ================= CONTACT ME SECTION ================= */}
-        <section id="contact" className="w-full rounded-2xl border border-cyan-500/30 bg-gradient-to-br from-slate-900 via-slate-900/90 to-slate-950 p-8 sm:p-12 text-center space-y-6 shadow-2xl">
+        {/* ================= CONTACT SECTION ================= */}
+        <section id="contact" className="w-full rounded-2xl border border-slate-800 bg-slate-900/80 p-8 sm:p-12 text-center space-y-6 shadow-2xl">
           <div className="max-w-2xl mx-auto space-y-3">
-            <h2 className="text-3xl font-bold text-white">Let's Connect & Collaborate</h2>
+            <h2 className="text-3xl font-bold text-white">Get In Touch</h2>
             <p className="text-slate-400 text-xs sm:text-sm">
-              Available for enterprise network engineering roles, cybersecurity consulting, or AI workflow integration.
+              Available for enterprise network engineering, cybersecurity consulting, or AI workflow automation.
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
             <a
               href="mailto:aslambasha557@gmail.com"
-              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 px-8 py-3.5 text-sm font-semibold text-white transition-all shadow-lg shadow-cyan-600/20 active:scale-95"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 px-8 py-3 text-sm font-semibold text-white transition-all shadow-lg shadow-cyan-600/20 active:scale-95"
             >
               <Mail className="h-4 w-4" />
               <span>aslambasha557@gmail.com</span>
@@ -263,7 +242,7 @@ export default function AboutPage() {
               download="Aslam_Basha_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 rounded-xl bg-slate-900 border border-slate-700 hover:bg-slate-800 px-8 py-3.5 text-sm font-semibold text-slate-200 transition-all active:scale-95"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 rounded-xl bg-slate-950 border border-slate-800 hover:bg-slate-900 px-8 py-3 text-sm font-semibold text-slate-200 transition-all active:scale-95"
             >
               <FileText className="h-4 w-4 text-cyan-400" />
               <span>Download Resume</span>
