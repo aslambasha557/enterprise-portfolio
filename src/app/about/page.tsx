@@ -1,14 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import {
-  Award,
   ShieldCheck,
   BrainCircuit,
   FileText,
   ArrowLeft,
   Mail,
   Briefcase,
-  User,
   CheckCircle2,
 } from "lucide-react";
 
@@ -56,28 +54,48 @@ export default function AboutPage() {
           </div>
         </nav>
 
-        {/* ================= BIO & PHOTO GALLERY ================= */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
+        {/* ================= BIO & PASSPORT PHOTO ================= */}
+        <section className="flex flex-col md:flex-row items-center md:items-start gap-8 lg:gap-12 w-full border-b border-slate-800/80 pb-12">
           
-          <div className="lg:col-span-8 space-y-6">
+          {/* Passport Size Photo Frame (Standard 3:4 Aspect Ratio) */}
+          <div className="flex-shrink-0 flex flex-col items-center space-y-3">
+            <div className="relative w-40 h-52 sm:w-48 sm:h-64 rounded-xl overflow-hidden border-2 border-cyan-500/40 bg-slate-900 shadow-2xl shadow-cyan-950/60 group">
+              <img
+                src="/image_86b341.png"
+                alt="Aslam Basha - Passport Photo"
+                className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
+                onError={(e) => {
+                  // Fallback icon if image path is missing in public folder
+                  const target = e.target as HTMLElement;
+                  target.style.display = "none";
+                }}
+              />
+            </div>
+            <span className="text-[11px] font-mono text-slate-400 tracking-wider uppercase">
+              Aslam Basha
+            </span>
+          </div>
+
+          {/* Bio & Details */}
+          <div className="space-y-6 flex-1 text-center md:text-left">
             <p className="text-xs font-mono tracking-widest text-cyan-400 uppercase font-semibold">
               PROFESSIONAL BACKGROUND & BIO
             </p>
 
-            <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
               Aslam Basha <br />
               <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-indigo-400 bg-clip-text text-transparent">
                 Network Engineer & AI Security Specialist
               </span>
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-3xl">
               Currently working as a <strong>Network Engineer at MAP</strong>, I bridge enterprise 
               <strong> Cisco infrastructure (CCNP / CCNA)</strong>, <strong>Cybersecurity & SOC defense</strong>, and 
               <strong> AI-driven operational automation</strong>. By deploying autonomous AI agents, private RAG engines, and automated network troubleshooting workflows, I help organizations reduce ticket turnaround times, optimize LAN/WAN topology, and secure critical infrastructure without data compromise.
             </p>
 
-            <div className="flex flex-wrap gap-3 pt-2">
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2">
               <a
                 href="/resume.pdf"
                 download="Aslam_Basha_Resume.pdf"
@@ -95,34 +113,6 @@ export default function AboutPage() {
                 <Mail className="h-4 w-4 text-cyan-400" />
                 <span>Contact Me</span>
               </a>
-            </div>
-          </div>
-
-          {/* Photo Gallery Grid */}
-          <div className="lg:col-span-4 grid grid-cols-2 gap-3 w-full">
-            <div className="col-span-2 rounded-2xl border border-cyan-500/30 bg-slate-900 p-2 overflow-hidden shadow-xl">
-              <img
-                src="/image_86b341.png"
-                alt="Aslam Basha"
-                className="w-full h-52 sm:h-60 object-cover rounded-xl hover:scale-105 transition-transform duration-500"
-                onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
-              />
-            </div>
-            <div className="rounded-xl border border-slate-800 bg-slate-900 p-1.5 overflow-hidden">
-              <img
-                src="/image_87903c.jpg"
-                alt="Credentials"
-                className="w-full h-28 object-cover rounded-lg hover:scale-105 transition-transform duration-500"
-                onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
-              />
-            </div>
-            <div className="rounded-xl border border-slate-800 bg-slate-900 p-1.5 overflow-hidden">
-              <img
-                src="/image_8793e3.png"
-                alt="Architecture"
-                className="w-full h-28 object-cover rounded-lg hover:scale-105 transition-transform duration-500"
-                onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
-              />
             </div>
           </div>
 
