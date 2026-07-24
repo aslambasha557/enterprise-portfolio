@@ -31,7 +31,7 @@ function LinkedinIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-// Project Data Object
+// Project Data Object - Simply append new items to this array!
 const projectsData = [
   {
     id: 1,
@@ -57,6 +57,28 @@ const projectsData = [
   },
   {
     id: 2,
+    category: "ENTERPRISE AI & KNOWLEDGE OPS",
+    role: "AI Systems Specialist",
+    title: "Google Drive Automated RAG Pipeline with Local Qdrant & Ollama",
+    summary:
+      "Automated document ingestion and conversational AI system that monitors Google Drive folders, vectorizes company network topology files using nomic-embed-text embeddings, and stores them in Qdrant for natural language search via LangChain agents.",
+    outcome: "Sub-second internal semantic search across legacy IT specs and topology docs with zero data leakage.",
+    techStack: ["n8n", "Qdrant", "Ollama", "Google Drive API", "LangChain", "Gemini API"],
+    details: {
+      problem:
+        "Engineers manually searched through thousands of scattered Drive files for serial numbers, IP schemas, and hardware specs, bottlenecking incident resolution times.",
+      architecture: [
+        "1. Real-time Ingestion Trigger: Listens for Google Drive file creations and webhook payloads, extracting text asynchronously.",
+        "2. Text Chunking & Embeddings: Splits docs with Recursive Character Splitters (600/100 overlap) and generates vectors using local Ollama nomic-embed-text.",
+        "3. Vector Storage: Dynamically upserts document embeddings and metadata into a local Qdrant collection.",
+        "4. Conversational AI Agent: Pairs LangChain vector retrieval tool with memory buffers and Llama 3.1 / Gemini Flash for precise human-readable queries.",
+      ],
+      highlights:
+        "Includes batch folder processing, fallback LLM routing, and system-level rules enforcing strict markdown outputs over raw tool syntax.",
+    },
+  },
+  {
+    id: 3,
     category: "CYBERSECURITY & RAG",
     role: "Security & AI Engineer",
     title: "Air-Gapped Private RAG Engine for SOC Operations",
@@ -78,7 +100,7 @@ const projectsData = [
     },
   },
   {
-    id: 3,
+    id: 4,
     category: "NETWORK AUTOMATION & AI",
     role: "Lead Automation Engineer",
     title: "Enterprise Autonomous Network Incident AI Agent",
@@ -100,7 +122,7 @@ const projectsData = [
     },
   },
   {
-    id: 4,
+    id: 5,
     category: "ENTERPRISE LAN/WAN",
     role: "Network Engineer",
     title: "Automated SD-WAN & Multi-Vendor LAN Topology Auditor",
@@ -213,8 +235,9 @@ export default function HomePage() {
                 Production Projects & Systems
               </h2>
             </div>
+            {/* DYNAMIC DEPLOYMENT COUNTER */}
             <span className="text-xs font-mono bg-slate-900 border border-slate-800 text-cyan-400 px-3 py-1 rounded-full">
-              4 Active Deployments
+              {projectsData.length} Active Deployments
             </span>
           </div>
 
