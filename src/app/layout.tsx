@@ -1,5 +1,6 @@
 ﻿import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,11 +14,25 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aslam Basha | Enterprise AI Architecture & Network Automation",
+  title: "Aslam Basha | Network Engineer & Cybersecurity Specialist",
   description:
-    "Enterprise consultant specializing in air-gapped private RAG AI platforms, SOAR security automation, and multi-vendor network orchestration.",
+    "Network Engineer at MAP specializing in CCNP/CCNA Enterprise LAN/WAN, SD-WAN, Cybersecurity, Penetration Testing, AI Network Security, SOC operations, and Automation.",
   keywords: [
     "Aslam Basha",
+    "Network Engineer ",
+    "CCNP",
+    "CCNA",
+    "Enterprise LAN/WAN",
+    "SD-WAN",
+    "Cybersecurity",
+    "Penetration Testing",
+    "AI Network Security",
+    "SOC",
+    "Windows Server & Active Directory",
+    "Python",
+    "Power BI",
+    "Excel Mastery",
+    "Automation",
     "Enterprise AI Architecture",
     "Private RAG",
     "Network Automation",
@@ -30,9 +45,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Aslam Basha" }],
   creator: "Aslam Basha",
   openGraph: {
-    title: "Aslam Basha | Enterprise AI Architecture & Network Automation",
+    title: "Aslam Basha | Network Engineer & Cybersecurity Specialist",
     description:
-      "Enterprise consultant specializing in air-gapped private RAG AI platforms, SOAR security automation, and multi-vendor network orchestration.",
+      "Network Engineer at MAP specializing in CCNP/CCNA Enterprise LAN/WAN, SD-WAN, Cybersecurity, Penetration Testing, AI Network Security, SOC operations, and Automation.",
     url: "https://enterprise-portfolio-5vvf.vercel.app",
     siteName: "Aslam Basha Portfolio",
     locale: "en_US",
@@ -40,9 +55,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aslam Basha | Enterprise AI Architecture & Network Automation",
+    title: "Aslam Basha | Network Engineer & Cybersecurity Specialist",
     description:
-      "Enterprise consultant specializing in air-gapped private RAG AI platforms, SOAR security automation, and multi-vendor network orchestration.",
+      "Network Engineer at MAP specializing in CCNP/CCNA Enterprise LAN/WAN, SD-WAN, Cybersecurity, Penetration Testing, AI Network Security, SOC operations, and Automation.",
   },
 };
 
@@ -58,6 +73,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-slate-950 text-slate-100 font-sans">
         {children}
+        <Analytics />
       </body>
     </html>
   );
