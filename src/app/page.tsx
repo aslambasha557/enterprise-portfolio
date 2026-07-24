@@ -1,12 +1,20 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
 import {
   ArrowRight,
   FileText,
   Mail,
   CheckCircle2,
+  ChevronDown,
+  ChevronUp,
+  Terminal,
+  Layers,
+  Zap,
 } from "lucide-react";
 
+// Brand Icons (Custom SVG to avoid Lucide import issues)
 function GithubIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg className="h-4 w-4 text-cyan-400 fill-current" viewBox="0 0 24 24" {...props}>
@@ -23,7 +31,108 @@ function LinkedinIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
+// Project Data Object
+const projectsData = [
+  {
+    id: 1,
+    category: "NETWORK AUTOMATION & AI",
+    role: "Lead Automation Engineer",
+    title: "Enterprise Autonomous Network Incident AI Agent",
+    summary:
+      "Engineered an autonomous AI diagnostic agent using Python, Cisco IOS-XE APIs, and Ollama. Listens for SNMP traps and syslog alerts in real time, executing diagnostic show commands across routers and switches to pinpoint flapping BGP peers and VLAN mismatches instantly.",
+    outcome: "Reduced Mean Time To Repair (MTTR) by 75% for routine core routing outages.",
+    techStack: ["Python", "Cisco IOS-XE API", "Ollama", "SNMP/Syslog", "Make"],
+    details: {
+      problem:
+        "Enterprise network alerts flooded engineers with noise, causing alert fatigue. Tier-1 and Tier-2 engineers manually spent 30+ minutes executing repetitive 'show' commands during routing outages.",
+      architecture: [
+        "1. Real-time Listener: Python-backed SNMP/Syslog receiver intercepts router state changes.",
+        "2. Automated Command Dispatch: Uses Netmiko and RESTCONF to execute targeted diagnostic routines on Cisco IOS-XE switches.",
+        "3. Local LLM Analysis: Feeds parsed CLI outputs into an air-gapped local Ollama instance to analyze BGP logs and ARP tables.",
+        "4. Incident Notification: Dispatches a structured root-cause report to NOC webhooks before an engineer manually opens a ticket.",
+      ],
+      highlights:
+        "Zero cloud API latency, zero config exposure outside the enterprise perimeter, and fully automated diagnostic execution.",
+    },
+  },
+  {
+    id: 2,
+    category: "CYBERSECURITY & RAG",
+    role: "Security & AI Engineer",
+    title: "Air-Gapped Private RAG Engine for SOC Operations",
+    summary:
+      "Built a zero-data-leakage Retrieval-Augmented Generation (RAG) vector database utilizing Msty and local LLMs. Enables SOC analysts to instantly query internal network topologies, threat playbooks, and compliance policies without sending data to public cloud APIs.",
+    outcome: "100% data privacy compliance with instant internal search across 5,000+ pages.",
+    techStack: ["Msty", "NotebookLM", "Ollama", "Vector DB", "Python"],
+    details: {
+      problem:
+        "Strict corporate security compliance prevented uploading network topology maps, firewall rulesets, and SOC threat playbooks to cloud-based AI systems like ChatGPT.",
+      architecture: [
+        "1. Document Ingestion: Ingests 5,000+ pages of PDF, Markdown, and CSV network topology documentation.",
+        "2. Chunking & Embeddings: Local vector embedding model converts documentation into semantic search vectors.",
+        "3. Local RAG Pipeline: Integrates with Ollama/Msty UI for air-gapped, sub-second natural language querying.",
+        "4. Security Enforcement: Ensures no telemetry or query data leaves the internal enterprise network.",
+      ],
+      highlights:
+        "Empowers SOC analysts to find exact firewall policies and troubleshooting steps in seconds while maintaining strict ISO27001 and SOC2 privacy boundaries.",
+    },
+  },
+  {
+    id: 3,
+    category: "ENTERPRISE LAN/WAN",
+    role: "Network Engineer",
+    title: "Automated SD-WAN & Multi-Vendor LAN Topology Auditor",
+    summary:
+      "Developed an automated auditing pipeline that harvests configurations across Cisco enterprise switches, routers, and SD-WAN edge devices. Generates real-time Power BI operational dashboards to flag configuration drift and security non-compliance.",
+    outcome: "Saved 15+ manual auditing hours per week across enterprise site deployments.",
+    techStack: ["Power BI", "Python", "Cisco CLI Parsing", "JSON", "REST APIs"],
+    details: {
+      problem:
+        "Unsynchronized configuration changes across multi-vendor devices created silent security risks, untracked VLAN additions, and routing loop hazards.",
+      architecture: [
+        "1. Scheduled Collector: Nightly Python scripts poll 100+ core/edge devices using SSH and REST APIs.",
+        "2. Syntax & Compliance Parser: Normalizes vendor CLI output into structured JSON schema.",
+        "3. Drift Engine: Compares active running configurations against baseline golden templates.",
+        "4. BI Visualizer: Automatically refreshes interactive Power BI dashboards highlighting compliance scores and flag discrepancies.",
+      ],
+      highlights:
+        "Provides executive management and network auditors with a single source of truth for all enterprise site configurations.",
+    },
+  },
+  {
+    id: 4,
+    category: "VOICE AI & INCIDENT TRIAGE",
+    role: "AI Integration Specialist",
+    title: "Voice-Activated IT Triage & Incident AI Assistant",
+    summary:
+      "Integrated Vapi Voice AI with automated REST webhooks to receive field engineer calls, transcribe incident descriptions, parse error codes, and automatically trigger initial ping and traceroute diagnostic routines.",
+    outcome: "Eliminated manual Tier-1 ticket creation delay for field network engineers.",
+    techStack: ["Vapi Voice AI", "Make Workflows", "REST APIs", "Python"],
+    details: {
+      problem:
+        "Field technicians working on-site in server rooms had to physically open laptops and log into ticketing systems while handling cabling or rack hardware.",
+      architecture: [
+        "1. Voice Ingestion: Field engineers place a quick phone call to the Vapi Voice AI agent.",
+        "2. Speech Processing: Natural language processor transcribes equipment IDs and reported errors.",
+        "3. Automated Webhook Execution: Triggers automated ICMP ping sweeps and traceroutes across impacted subnet IPs.",
+        "4. Automated Logging: Posts diagnostic baseline data directly into the active ITSM ticketing queue.",
+      ],
+      highlights:
+        "Delivers hands-free IT support call triage, allowing field teams to stay focused on physical infrastructure maintenance.",
+    },
+  },
+];
+
 export default function HomePage() {
+  // State to track expanded project IDs
+  const [expandedProjects, setExpandedProjects] = useState<number[]>([]);
+
+  const toggleProject = (id: number) => {
+    setExpandedProjects((prev) =>
+      prev.includes(id) ? prev.filter((pId) => pId !== id) : [...prev, id]
+    );
+  };
+
   return (
     <main className="w-full min-h-screen bg-slate-950 text-slate-100 py-8 sm:py-12">
       
@@ -93,7 +202,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ================= PROJECTS GRID ================= */}
+        {/* ================= PROJECTS GRID (EXPANDABLE) ================= */}
         <section className="space-y-8 w-full">
           <div className="flex items-center justify-between border-b border-slate-800 pb-4">
             <div>
@@ -109,152 +218,118 @@ export default function HomePage() {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-            
-            {/* PROJECT 1 */}
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 sm:p-8 space-y-6 hover:border-cyan-500/50 transition-all shadow-xl group">
-              <div className="flex items-center justify-between">
-                <span className="text-[11px] font-mono text-cyan-400 tracking-wider uppercase font-semibold">
-                  NETWORK AUTOMATION & AI
-                </span>
-                <span className="text-[11px] font-mono text-slate-400">Lead Automation Engineer</span>
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full items-start">
+            {projectsData.map((project) => {
+              const isExpanded = expandedProjects.includes(project.id);
 
-              <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors">
-                Enterprise Autonomous Network Incident AI Agent
-              </h3>
+              return (
+                <div
+                  key={project.id}
+                  className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 sm:p-8 space-y-6 hover:border-cyan-500/50 transition-all shadow-xl group"
+                >
+                  {/* Category & Role */}
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] font-mono text-cyan-400 tracking-wider uppercase font-semibold">
+                      {project.category}
+                    </span>
+                    <span className="text-[11px] font-mono text-slate-400">
+                      {project.role}
+                    </span>
+                  </div>
 
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Engineered an autonomous AI diagnostic agent using Python, Cisco IOS-XE APIs, and Ollama. Listens for SNMP traps and syslog alerts in real time, executing diagnostic show commands across routers and switches to pinpoint flapping BGP peers and VLAN mismatches instantly.
-              </p>
+                  {/* Title */}
+                  <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors">
+                    {project.title}
+                  </h3>
 
-              <div className="rounded-xl bg-slate-950/80 border border-cyan-500/20 p-4 space-y-1">
-                <div className="flex items-center space-x-2 text-cyan-400 text-xs font-semibold">
-                  <CheckCircle2 className="h-4 w-4" />
-                  <span>Key Outcome</span>
+                  {/* Summary */}
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    {project.summary}
+                  </p>
+
+                  {/* Outcome */}
+                  <div className="rounded-xl bg-slate-950/80 border border-cyan-500/20 p-4 space-y-1">
+                    <div className="flex items-center space-x-2 text-cyan-400 text-xs font-semibold">
+                      <CheckCircle2 className="h-4 w-4" />
+                      <span>Key Outcome</span>
+                    </div>
+                    <p className="text-xs text-slate-300 pl-6">
+                      {project.outcome}
+                    </p>
+                  </div>
+
+                  {/* Tech Badges */}
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    {project.techStack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="text-[11px] font-mono bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded-md"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* EXPANDABLE SECTION */}
+                  {isExpanded && (
+                    <div className="pt-4 border-t border-slate-800/80 space-y-5 text-xs text-slate-300 animate-fadeIn">
+                      
+                      {/* Problem Statement */}
+                      <div className="space-y-1.5 bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+                        <div className="flex items-center space-x-2 text-indigo-400 font-semibold">
+                          <Zap className="h-4 w-4" />
+                          <span className="uppercase tracking-wider font-mono text-[11px]">Enterprise Challenge</span>
+                        </div>
+                        <p className="text-slate-300 leading-relaxed pl-6">
+                          {project.details.problem}
+                        </p>
+                      </div>
+
+                      {/* Architecture Steps */}
+                      <div className="space-y-2 bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+                        <div className="flex items-center space-x-2 text-cyan-400 font-semibold">
+                          <Layers className="h-4 w-4" />
+                          <span className="uppercase tracking-wider font-mono text-[11px]">System Architecture & Workflow</span>
+                        </div>
+                        <ul className="space-y-1.5 text-slate-300 pl-6">
+                          {project.details.architecture.map((step, idx) => (
+                            <li key={idx} className="leading-relaxed">
+                              {step}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {/* Highlights */}
+                      <div className="space-y-1.5 bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+                        <div className="flex items-center space-x-2 text-sky-400 font-semibold">
+                          <Terminal className="h-4 w-4" />
+                          <span className="uppercase tracking-wider font-mono text-[11px]">Deployment Highlights</span>
+                        </div>
+                        <p className="text-slate-300 leading-relaxed pl-6">
+                          {project.details.highlights}
+                        </p>
+                      </div>
+
+                    </div>
+                  )}
+
+                  {/* EXPAND TOGGLE BUTTON */}
+                  <button
+                    onClick={() => toggleProject(project.id)}
+                    className="w-full inline-flex items-center justify-center space-x-2 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-500/50 hover:bg-slate-900 py-2.5 text-xs font-semibold text-cyan-400 transition-all active:scale-[0.99] mt-2"
+                  >
+                    <span>{isExpanded ? "Collapse Details" : "Expand Technical Details"}</span>
+                    {isExpanded ? (
+                      <ChevronUp className="h-4 w-4 text-cyan-400" />
+                    ) : (
+                      <ChevronDown className="h-4 w-4 text-cyan-400" />
+                    )}
+                  </button>
+
                 </div>
-                <p className="text-xs text-slate-300 pl-6">
-                  Reduced Mean Time To Repair (MTTR) by 75% for routine core routing outages.
-                </p>
-              </div>
-
-              <div className="flex flex-wrap gap-2 pt-2">
-                {["Python", "Cisco IOS-XE API", "Ollama", "SNMP/Syslog", "Make"].map((tech) => (
-                  <span key={tech} className="text-[11px] font-mono bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded-md">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* PROJECT 2 */}
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 sm:p-8 space-y-6 hover:border-cyan-500/50 transition-all shadow-xl group">
-              <div className="flex items-center justify-between">
-                <span className="text-[11px] font-mono text-cyan-400 tracking-wider uppercase font-semibold">
-                  CYBERSECURITY & RAG
-                </span>
-                <span className="text-[11px] font-mono text-slate-400">Security & AI Engineer</span>
-              </div>
-
-              <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors">
-                Air-Gapped Private RAG Engine for SOC Operations
-              </h3>
-
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Built a zero-data-leakage Retrieval-Augmented Generation (RAG) vector database utilizing Msty and local LLMs. Enables SOC analysts to instantly query internal network topologies, threat playbooks, and compliance policies without sending data to public cloud APIs.
-              </p>
-
-              <div className="rounded-xl bg-slate-950/80 border border-cyan-500/20 p-4 space-y-1">
-                <div className="flex items-center space-x-2 text-cyan-400 text-xs font-semibold">
-                  <CheckCircle2 className="h-4 w-4" />
-                  <span>Key Outcome</span>
-                </div>
-                <p className="text-xs text-slate-300 pl-6">
-                  100% data privacy compliance with instant internal search across 5,000+ pages.
-                </p>
-              </div>
-
-              <div className="flex flex-wrap gap-2 pt-2">
-                {["Msty", "NotebookLM", "Ollama", "Vector DB", "Python"].map((tech) => (
-                  <span key={tech} className="text-[11px] font-mono bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded-md">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* PROJECT 3 */}
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 sm:p-8 space-y-6 hover:border-cyan-500/50 transition-all shadow-xl group">
-              <div className="flex items-center justify-between">
-                <span className="text-[11px] font-mono text-cyan-400 tracking-wider uppercase font-semibold">
-                  ENTERPRISE LAN/WAN
-                </span>
-                <span className="text-[11px] font-mono text-slate-400">Network Engineer</span>
-              </div>
-
-              <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors">
-                Automated SD-WAN & Multi-Vendor LAN Topology Auditor
-              </h3>
-
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Developed an automated auditing pipeline that harvests configurations across Cisco enterprise switches, routers, and SD-WAN edge devices. Generates real-time Power BI operational dashboards to flag configuration drift and security non-compliance.
-              </p>
-
-              <div className="rounded-xl bg-slate-950/80 border border-cyan-500/20 p-4 space-y-1">
-                <div className="flex items-center space-x-2 text-cyan-400 text-xs font-semibold">
-                  <CheckCircle2 className="h-4 w-4" />
-                  <span>Key Outcome</span>
-                </div>
-                <p className="text-xs text-slate-300 pl-6">
-                  Saved 15+ manual auditing hours per week across enterprise site deployments.
-                </p>
-              </div>
-
-              <div className="flex flex-wrap gap-2 pt-2">
-                {["Power BI", "Python", "Cisco CLI Parsing", "JSON", "REST APIs"].map((tech) => (
-                  <span key={tech} className="text-[11px] font-mono bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded-md">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* PROJECT 4 */}
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 sm:p-8 space-y-6 hover:border-cyan-500/50 transition-all shadow-xl group">
-              <div className="flex items-center justify-between">
-                <span className="text-[11px] font-mono text-cyan-400 tracking-wider uppercase font-semibold">
-                  VOICE AI & INCIDENT TRIAGE
-                </span>
-                <span className="text-[11px] font-mono text-slate-400">AI Integration Specialist</span>
-              </div>
-
-              <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors">
-                Voice-Activated IT Triage & Incident AI Assistant
-              </h3>
-
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Integrated Vapi Voice AI with automated REST webhooks to receive field engineer calls, transcribe incident descriptions, parse error codes, and automatically trigger initial ping and traceroute diagnostic routines.
-              </p>
-
-              <div className="rounded-xl bg-slate-950/80 border border-cyan-500/20 p-4 space-y-1">
-                <div className="flex items-center space-x-2 text-cyan-400 text-xs font-semibold">
-                  <CheckCircle2 className="h-4 w-4" />
-                  <span>Key Outcome</span>
-                </div>
-                <p className="text-xs text-slate-300 pl-6">
-                  Eliminated manual Tier-1 ticket creation delay for field network engineers.
-                </p>
-              </div>
-
-              <div className="flex flex-wrap gap-2 pt-2">
-                {["Vapi Voice AI", "Make Workflows", "REST APIs", "Python"].map((tech) => (
-                  <span key={tech} className="text-[11px] font-mono bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded-md">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-
+              );
+            })}
           </div>
         </section>
 
