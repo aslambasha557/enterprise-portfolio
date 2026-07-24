@@ -8,6 +8,8 @@ import {
   FileText,
   ArrowLeft,
   Mail,
+  Github,
+  Linkedin,
   CheckCircle2,
 } from "lucide-react";
 
@@ -58,7 +60,7 @@ export default function AboutPage() {
         {/* ================= BIO & PASSPORT PHOTO ================= */}
         <section className="flex flex-col md:flex-row items-center md:items-start gap-8 lg:gap-12 w-full border-b border-slate-800/80 pb-12">
           
-          {/* Passport Size Photo Frame (Standard 3:4 Aspect Ratio) */}
+          {/* Passport Size Photo Frame */}
           <div className="flex-shrink-0 flex flex-col items-center space-y-3">
             <div className="relative w-40 h-52 sm:w-48 sm:h-64 rounded-xl overflow-hidden border-2 border-cyan-500/40 bg-slate-900 shadow-2xl shadow-cyan-950/60 group">
               <img
@@ -97,6 +99,24 @@ export default function AboutPage() {
 
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2">
               <a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 px-4 py-2.5 text-xs sm:text-sm font-semibold text-slate-200 transition-all"
+              >
+                <Github className="h-4 w-4 text-cyan-400" />
+                <span>GitHub</span>
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 px-4 py-2.5 text-xs sm:text-sm font-semibold text-slate-200 transition-all"
+              >
+                <Linkedin className="h-4 w-4 text-cyan-400" />
+                <span>LinkedIn</span>
+              </a>
+              <a
                 href="/resume.pdf"
                 download="Aslam_Basha_Resume.pdf"
                 target="_blank"
@@ -105,13 +125,6 @@ export default function AboutPage() {
               >
                 <FileText className="h-4 w-4" />
                 <span>Download Resume (PDF)</span>
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center space-x-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 px-5 py-2.5 text-xs sm:text-sm font-semibold text-slate-200 transition-all"
-              >
-                <Mail className="h-4 w-4 text-cyan-400" />
-                <span>Contact Me</span>
               </a>
             </div>
           </div>
@@ -209,7 +222,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ================= CONTACT SECTION ================= */}
+        {/* ================= CONTACT SECTION WITH GITHUB & LINKEDIN ================= */}
         <section id="contact" className="w-full rounded-2xl border border-slate-800 bg-slate-900/80 p-8 sm:p-12 text-center space-y-6 shadow-2xl">
           <div className="max-w-2xl mx-auto space-y-3">
             <h2 className="text-3xl font-bold text-white">Get In Touch</h2>
@@ -218,13 +231,33 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
             <a
               href="mailto:aslambasha557@gmail.com"
-              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 px-8 py-3 text-sm font-semibold text-white transition-all shadow-lg shadow-cyan-600/20 active:scale-95"
+              className="inline-flex items-center space-x-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 px-6 py-3 text-xs sm:text-sm font-semibold text-white transition-all shadow-lg shadow-cyan-600/20 active:scale-95"
             >
               <Mail className="h-4 w-4" />
               <span>aslambasha557@gmail.com</span>
+            </a>
+
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center space-x-2 rounded-xl bg-slate-950 border border-slate-800 hover:bg-slate-900 px-6 py-3 text-xs sm:text-sm font-semibold text-slate-200 transition-all active:scale-95"
+            >
+              <Github className="h-4 w-4 text-cyan-400" />
+              <span>GitHub</span>
+            </a>
+
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center space-x-2 rounded-xl bg-slate-950 border border-slate-800 hover:bg-slate-900 px-6 py-3 text-xs sm:text-sm font-semibold text-slate-200 transition-all active:scale-95"
+            >
+              <Linkedin className="h-4 w-4 text-cyan-400" />
+              <span>LinkedIn</span>
             </a>
 
             <a
@@ -232,7 +265,7 @@ export default function AboutPage() {
               download="Aslam_Basha_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 rounded-xl bg-slate-950 border border-slate-800 hover:bg-slate-900 px-8 py-3 text-sm font-semibold text-slate-200 transition-all active:scale-95"
+              className="inline-flex items-center space-x-2 rounded-xl bg-slate-950 border border-slate-800 hover:bg-slate-900 px-6 py-3 text-xs sm:text-sm font-semibold text-slate-200 transition-all active:scale-95"
             >
               <FileText className="h-4 w-4 text-cyan-400" />
               <span>Download Resume</span>
