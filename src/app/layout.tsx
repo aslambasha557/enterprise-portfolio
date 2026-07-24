@@ -1,64 +1,59 @@
-﻿import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react";
+﻿import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Aslam Basha | Network Engineer & Cybersecurity Specialist",
+  title: {
+    default: "Aslam Basha | Network Engineer & AI Security Specialist",
+    template: "%s | Aslam Basha",
+  },
   description:
-    "Network Engineer at MAP specializing in CCNP/CCNA Enterprise LAN/WAN, SD-WAN, Cybersecurity, Penetration Testing, AI Network Security, SOC operations, and Automation.",
+    "Portfolio & Bio of Aslam Basha — Network Engineer at MAP specializing in Cisco Infrastructure (CCNP/CCNA), Cybersecurity, SOC Operations, and Air-Gapped AI Systems.",
   keywords: [
     "Aslam Basha",
-    "Network Engineer ",
-    "CCNP",
+    "Network Engineer",
+    "AI Security Specialist",
+    "CCNP Enterprise",
     "CCNA",
-    "Enterprise LAN/WAN",
-    "SD-WAN",
     "Cybersecurity",
-    "Penetration Testing",
-    "AI Network Security",
-    "SOC",
-    "Windows Server & Active Directory",
-    "Python",
-    "Power BI",
-    "Excel Mastery",
-    "Automation",
-    "Enterprise AI Architecture",
+    "SOC Operations",
+    "Air-Gapped AI",
+    "Autonomous AI Agents",
     "Private RAG",
-    "Network Automation",
-    "SOAR Security",
-    "Cloud Native",
-    "DevOps",
-    "Qdrant",
-    "Ollama",
+    "MAP Network Engineer",
   ],
   authors: [{ name: "Aslam Basha" }],
   creator: "Aslam Basha",
   openGraph: {
-    title: "Aslam Basha | Network Engineer & Cybersecurity Specialist",
-    description:
-      "Network Engineer at MAP specializing in CCNP/CCNA Enterprise LAN/WAN, SD-WAN, Cybersecurity, Penetration Testing, AI Network Security, SOC operations, and Automation.",
-    url: "https://enterprise-portfolio-5vvf.vercel.app",
-    siteName: "Aslam Basha Portfolio",
-    locale: "en_US",
     type: "website",
+    locale: "en_US",
+    title: "Aslam Basha | Network Engineer & AI Security Specialist",
+    description:
+      "Bridging Cisco enterprise infrastructure, cybersecurity defense, and autonomous AI-driven network automation.",
+    siteName: "Aslam Basha Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aslam Basha | Network Engineer & Cybersecurity Specialist",
+    title: "Aslam Basha | Network Engineer & AI Security Specialist",
     description:
-      "Network Engineer at MAP specializing in CCNP/CCNA Enterprise LAN/WAN, SD-WAN, Cybersecurity, Penetration Testing, AI Network Security, SOC operations, and Automation.",
+      "Enterprise infrastructure, cybersecurity defense, and autonomous AI-driven network automation.",
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#020617", // slate-950 background sync
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -67,13 +62,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col bg-slate-950 text-slate-100 font-sans">
-        {children}
-        <Analytics />
+    <html lang="en" className="dark scroll-smooth">
+      <body
+        className={`${inter.className} min-h-screen w-full bg-slate-950 text-slate-100 antialiased selection:bg-cyan-500 selection:text-slate-950 overflow-x-hidden`}
+      >
+        {/* Full-width container that prevents squishing/centering issues */}
+        <div className="relative flex min-h-screen w-full flex-col">
+          {children}
+        </div>
       </body>
     </html>
   );
