@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -70,37 +70,6 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
       </body>
-    </html>
-  );
-}
-import type { Metadata } from 'next';
-import './globals.css';
-
-export const metadata: Metadata = {
-  title: 'Aslam Basha | Enterprise AI Architecture & Network Automation',
-  description: 'Enterprise consultant specializing in air-gapped private RAG AI platforms, SOAR security automation, and multi-vendor network orchestration.',
-  openGraph: {
-    title: 'Aslam Basha | Enterprise AI Architecture & Network Automation',
-    description: 'Enterprise consultant specializing in air-gapped private RAG AI platforms, SOAR security automation, and multi-vendor network orchestration.',
-    url: 'https://aslambasha.com',
-    siteName: 'Aslam Basha Portfolio',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Aslam Basha | Enterprise AI Architecture & Network Automation',
-    description: 'Enterprise consultant specializing in air-gapped private RAG AI platforms, SOAR security automation, and multi-vendor network orchestration.',
-  },
-};
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="en">
-      <body>{children}</body>
     </html>
   );
 }
