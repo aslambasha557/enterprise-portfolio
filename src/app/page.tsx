@@ -1,4 +1,5 @@
 import React from 'react';
+import ContactSection from '@/components/ContactSection';
 import { 
   ShieldCheck, 
   Brain, 
@@ -314,6 +315,7 @@ sudo docker compose up -d`}
             </a>
           </div>
         </section>
+        <ContactSection/>
 
         {/* Footer */}
         <footer className="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 space-y-4 md:space-y-0">
