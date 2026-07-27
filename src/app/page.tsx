@@ -31,7 +31,7 @@ function LinkedinIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-// Project Data Object - Simply append new items to this array!
+// Project Data Object
 const projectsData = [
   {
     id: 1,
