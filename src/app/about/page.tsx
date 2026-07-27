@@ -106,14 +106,14 @@ export default function AboutPage() {
             </h1>
 
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-3xl">
-              Currently working as a <strong>Network Engineer at MAP</strong>, I bridge enterprise 
-              <strong> Cisco infrastructure (CCNP / CCNA)</strong>, <strong>Cybersecurity & SOC defense</strong>, and 
-              <strong> AI-driven operational automation</strong>. By deploying autonomous AI agents, private RAG engines, and automated network troubleshooting workflows, I help organizations reduce ticket turnaround times, optimize LAN/WAN topology, and secure critical infrastructure without data compromise.
+              Currently working as a <strong>Network Engineer at MAP (Museum of Art & Photography)</strong>, I bridge enterprise{" "}
+              <strong>Cisco infrastructure (CCNP / CCNA)</strong>, <strong>Cybersecurity & SOC defense</strong>, and{" "}
+              <strong>AI-driven operational automation</strong>. By deploying autonomous AI agents, private RAG engines, and automated network troubleshooting workflows, I help organizations reduce ticket turnaround times, optimize LAN/WAN topology, and secure critical infrastructure without data compromise.
             </p>
 
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2">
               <a
-                href="https://github.com"
+                href="https://github.com/aslambasha557"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center space-x-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 px-4 py-2.5 text-xs sm:text-sm font-semibold text-slate-200 transition-all"
@@ -122,7 +122,7 @@ export default function AboutPage() {
                 <span>GitHub</span>
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/aslam-basha"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center space-x-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 px-4 py-2.5 text-xs sm:text-sm font-semibold text-slate-200 transition-all"
@@ -156,7 +156,7 @@ export default function AboutPage() {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div>
                 <h3 className="text-xl font-bold text-white">Network Engineer</h3>
-                <p className="text-sm text-cyan-400 font-medium">MAP (Management & Professional Services)</p>
+                <p className="text-sm text-cyan-400 font-medium">MAP (Museum of Art & Photography)</p>
               </div>
               <span className="text-xs font-mono bg-slate-950 border border-slate-800 text-slate-300 px-3 py-1 rounded-md w-fit">
                 Present Role
@@ -255,7 +255,7 @@ export default function AboutPage() {
             </a>
 
             <a
-              href="https://github.com"
+              href="https://github.com/aslambasha557"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center space-x-2 rounded-xl bg-slate-950 border border-slate-800 hover:bg-slate-900 px-6 py-3 text-xs sm:text-sm font-semibold text-slate-200 transition-all active:scale-95"
@@ -265,7 +265,7 @@ export default function AboutPage() {
             </a>
 
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/aslam-basha"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center space-x-2 rounded-xl bg-slate-950 border border-slate-800 hover:bg-slate-900 px-6 py-3 text-xs sm:text-sm font-semibold text-slate-200 transition-all active:scale-95"
