@@ -4,34 +4,77 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
+// Base URL for metadata resolution across social platforms
+const siteUrl = "https://enterprise-portfolio-5vvf.vercel.app";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Aslam Basha | Network Engineer & AI Security Specialist",
   description:
     "10+ years of experience in Enterprise Network Architecture, Cisco LAN/WAN, SOC Security Automation, and Local RAG Engines.",
   keywords: [
+    // Personal Brand & Role
+    "Aslam Basha",
+    "Aslam Basha Portfolio",
+    "Aslam Basha Network Engineer",
+    "Senior Network Engineer",
+    "AI Security Specialist",
+    "Enterprise Infrastructure Architect",
+
+    // Enterprise Networking & Cisco
     "Network Engineering",
     "CCNP",
     "CCNA",
+    "Cisco Core Routing",
+    "Cisco Switching",
+    "LAN/WAN Architecture",
+    "BGP Routing",
+    "OSPF Protocol",
+    "SD-WAN Architecture",
+    "Enterprise Network Security",
+
+    // SOC Automation & Cybersecurity
     "SOC Automation",
-    "n8n",
-    "Qdrant",
-    "Ollama",
+    "Cybersecurity Defense",
+    "SecOps Automation",
+    "Vulnerability Management Pipelines",
+    "Incident Response Automation",
+    "Network Defense",
+    "Air-Gapped Security Systems",
+    "Threat Intelligence",
+
+    // AI, Local RAG & Vector Databases
     "RAG Architecture",
-    "Aslam Basha",
+    "Local RAG Engines",
+    "Retrieval-Augmented Generation",
+    "Air-Gapped AI Systems",
+    "Ollama Integration",
+    "Qdrant Vector Database",
+    "Vector Search",
+    "Local LLM Deployment",
+    "Autonomous AI Agents",
+    "Enterprise AI Workflows",
+
+    // Automation & DevOps
+    "n8n Automation",
+    "n8n Workflows",
+    "Network Automation",
+    "DevSecOps",
+    "Infrastructure Automation"
   ],
   authors: [{ name: "Aslam Basha" }],
   openGraph: {
     title: "Aslam Basha | Enterprise Network & Security Portfolio",
     description:
       "Automated SOC vulnerability pipelines, Network Incident AI Agents, and local RAG architectures.",
-    url: "https://your-portfolio.vercel.app", // Replace with your actual live Vercel domain
+    url: siteUrl,
     siteName: "Aslam Basha Portfolio",
     images: [
       {
-        url: "/image_86b341.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Aslam Basha Executive Portfolio Preview",
+        alt: "Aslam Basha Portfolio Preview",
       },
     ],
     locale: "en_US",
@@ -41,7 +84,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Aslam Basha | Network Engineer & AI Security Specialist",
     description: "10+ Years in Enterprise Infrastructure & AI Automation",
-    images: ["/image_86b341.png"],
+    images: ["/og-image.png"],
   },
 };
 
