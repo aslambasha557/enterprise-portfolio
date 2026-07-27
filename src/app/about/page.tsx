@@ -123,7 +123,7 @@ export default function AboutPage() {
                 <span>GitHub</span>
               </a>
               <a
-                href="https://www.linkedin.com/in/aslam-basha"
+                href="https://www.linkedin.com/in/aslam-basha5936"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center space-x-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 px-4 py-2.5 text-xs sm:text-sm font-semibold text-slate-200 transition-all"
@@ -267,7 +267,7 @@ export default function AboutPage() {
             </a>
 
             <a
-              href="https://www.linkedin.com/in/aslam-basha"
+              href="https://www.linkedin.com/in/aslam-basha5936"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center space-x-2 rounded-xl bg-slate-950 border border-slate-800 hover:bg-slate-900 px-6 py-3 text-xs sm:text-sm font-semibold text-slate-200 transition-all active:scale-95"
