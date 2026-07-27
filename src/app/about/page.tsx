@@ -106,7 +106,8 @@ export default function AboutPage() {
             </h1>
 
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-3xl">
-              Currently working as a <strong>Network Engineer at MAP (Museum of Art & Photography)</strong>, I bridge enterprise{" "}
+              With <strong>over 10 years of enterprise IT and network engineering experience</strong>, I currently serve as a{" "}
+              <strong>Network Engineer at MAP (Museum of Art & Photography)</strong>. I bridge enterprise{" "}
               <strong>Cisco infrastructure (CCNP / CCNA)</strong>, <strong>Cybersecurity & SOC defense</strong>, and{" "}
               <strong>AI-driven operational automation</strong>. By deploying autonomous AI agents, private RAG engines, and automated network troubleshooting workflows, I help organizations reduce ticket turnaround times, optimize LAN/WAN topology, and secure critical infrastructure without data compromise.
             </p>
@@ -155,19 +156,20 @@ export default function AboutPage() {
           <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 sm:p-8 space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div>
-                <h3 className="text-xl font-bold text-white">Network Engineer</h3>
+                <h3 className="text-xl font-bold text-white">Network & Security Engineer</h3>
                 <p className="text-sm text-cyan-400 font-medium">MAP (Museum of Art & Photography)</p>
               </div>
               <span className="text-xs font-mono bg-slate-950 border border-slate-800 text-slate-300 px-3 py-1 rounded-md w-fit">
-                Present Role
+                Jun 2023 – Present
               </span>
             </div>
 
             <ul className="space-y-2 text-xs sm:text-sm text-slate-300 list-disc list-inside leading-relaxed pt-2">
-              <li>Managing enterprise Cisco LAN/WAN core switches, routers, VLAN segmentation, and SD-WAN architecture.</li>
-              <li>Performing real-time network troubleshooting, BGP/OSPF routing audits, and incident resolution.</li>
-              <li>Deploying automated log monitoring and custom Python triage scripts to accelerate enterprise ticket turnaround times.</li>
-              <li>Integrating air-gapped private AI solutions for secure internal documentation search and SOC threat analysis.</li>
+              <li>Managing highly available enterprise LAN/WAN infrastructure across 3 sites, maintaining 99.9% uptime.</li>
+              <li>Architecting and optimizing Cisco Meraki SD-WAN environments, reducing network latency by 75% via Auto-VPN and ISP failover.</li>
+              <li>Administering CrowdStrike EDR, SentinelOne, and Endpoint Central, mitigating 500+ security threats monthly.</li>
+              <li>Conducting SOC-aligned incident response, cutting MTTR by 45% while keeping 100% audit-ready compliance.</li>
+              <li>Deploying self-hosted private RAG AI solutions and automated Python backup scripts to accelerate support triage.</li>
             </ul>
           </div>
         </section>
