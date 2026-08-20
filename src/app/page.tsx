@@ -35,6 +35,29 @@ function LinkedinIcon(props: React.SVGProps<SVGSVGElement>) {
 const projectsData = [
   {
     id: 1,
+    category: "AI SECURITY & SOC AUTOMATION",
+    role: "SOC Automation & Security Specialist",
+    title: "AI Email Security Scanner & Gmail Routing Engine",
+    summary:
+      "Enterprise-grade threat analysis engine that inspects incoming emails for phishing, BEC, credential harvesting, spoofing, and malicious attachments. Calculates dynamic risk scores (0–100) and auto-routes emails via Gmail API with color-coded labels—operating silently without user inbox clutter.",
+    outcome:
+      "100% automated silent email threat analysis, dynamic risk scoring, and zero-inbox-clutter quarantine routing.",
+    techStack: ["n8n", "Gmail API", "Python", "Google Apps Script", "LLM", "REST APIs"],
+    details: {
+      problem:
+        "Traditional spam filters miss sophisticated spoofing, BEC, and executive impersonation attacks, while sending noisy alert emails creates user friction and operational overhead.",
+      architecture: [
+        "1. Multi-Layer Identity & Threat Inspection: Evaluates SPF, DKIM, DMARC alignment, From/Reply-To mismatches, look-alike domain typosquatting, credential theft signals, and urgent payment requests.",
+        "2. Weighted Risk Scoring & Routing: Calculates strict risk scores mapping to four automated actions: SAFE, SUSPICIOUS, HIGH_RISK, and QUARANTINE.",
+        "3. Automated Gmail Label Hierarchy: Applies visual Gmail labels (Email Analysis/*) with dedicated color mapping (Green, Yellow, Orange, Red) and moves high-confidence threats directly to Spam.",
+        "4. Silent Operation & Telemetry Logging: Zero noisy notification emails sent to end-users. All rich threat telemetry and risk indicators are stored as structured JSON directly in backend logging databases.",
+      ],
+      highlights:
+        "Complete end-to-end security engine operating silently with zero user notification clutter and 100% structured JSON logging for SOC audits.",
+    },
+  },
+  {
+    id: 2,
     category: "CYBERSECURITY & AUTOMATION",
     role: "SOC Automation Engineer",
     title: "Production SOC Automated Vulnerability Management Matrix Pipeline",
@@ -56,7 +79,7 @@ const projectsData = [
     },
   },
   {
-    id: 2,
+    id: 3,
     category: "ENTERPRISE AI & KNOWLEDGE OPS",
     role: "AI Systems Specialist",
     title: "Google Drive Automated RAG Pipeline with Local Qdrant & Ollama",
@@ -78,7 +101,7 @@ const projectsData = [
     },
   },
   {
-    id: 3,
+    id: 4,
     category: "CYBERSECURITY & RAG",
     role: "Security & AI Engineer",
     title: "Air-Gapped Private RAG Engine for SOC Operations",
@@ -100,7 +123,7 @@ const projectsData = [
     },
   },
   {
-    id: 4,
+    id: 5,
     category: "NETWORK AUTOMATION & AI",
     role: "Lead Automation Engineer",
     title: "Enterprise Autonomous Network Incident AI Agent",
@@ -122,7 +145,7 @@ const projectsData = [
     },
   },
   {
-    id: 5,
+    id: 6,
     category: "ENTERPRISE LAN/WAN",
     role: "Network Engineer",
     title: "Automated SD-WAN & Multi-Vendor LAN Topology Auditor",
